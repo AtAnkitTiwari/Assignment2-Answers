@@ -1,0 +1,210 @@
+                                                                       Assignment-2(Answers)
+
+1. Can you create a sub class to the following class?
+    class A
+   {
+    private A()
+    {
+        //First Constructor
+    }
+     
+    private A(int i)
+    {
+        //Second Constructor
+    }
+    }
+Ans1- No, because a private constructor doesn't allow a class to be subclassed.
+
+2. Does field i of Class A be inherited to Class B in the below code?
+
+    class A
+   {
+    protected int i;
+   }
+ 
+   class B extends A
+   {
+     
+   }
+Ans2-yes as protected member can be inherited
+
+3. Is the below code written correctly?
+
+    class A
+    {
+    private class B
+    {
+        //inner class
+    }
+   }
+   
+   public class MainClass extends A
+    {
+    public static void main(String[] args)
+    {
+        B b = new B();
+    }
+    }
+Ans3- No because inner class B is private which can't be inherited.
+
+4. Is the below code written correctly?
+
+   package pack1;
+ 
+  class A
+  {
+     
+  }
+ 
+  package pack2;
+ 
+  class B extends A
+  {
+     
+   }
+Ans4- No because Default Class can't be inherited to another package.
+
+5. Can we declare a class as protected?
+Ans5- Yes only inner class can be protected.
+
+6. Do you think the below program is written correctly? If yes, what will be the output?
+
+   package pack1;
+ 
+  class X
+   {
+    protected int i = 1221;
+     
+    void methodOfX()
+    {
+        System.out.println(i);
+    }
+   }
+ 
+   public class MainClass
+   {
+    public static void main(String[] args)
+    {
+        X x = new X();
+         
+        System.out.println(x.i);
+         
+        x.methodOfX();
+    }
+    }
+Ans- 1221
+	1221
+
+7. Is the below programme works ? If not what will be the reason ?
+
+   package pack1;
+ 
+   class A
+    {
+    public A()
+    {
+        //public constructor
+    }
+    }
+ 
+   package pack2;
+ 
+  import pack1.*;
+ 
+  class B
+  {
+      A a = new A();       //Compile Time Error
+  }
+Ans7-No because Class A is defined as default.
+
+8. Can a protected field of a class be inherited to subclass outside the package?
+Ans8- Yes by the definition of private access modifier.
+
+9.Why Line 17 in the below code is throwing compile time error?
+
+  package pack1;
+ 
+   public class A
+    {
+    protected A()
+    {
+        //protected constructor
+    }
+    }
+ 
+   package pack2;
+ 
+  import pack1.A;
+ 
+  class B
+  {
+    A a = new A();
+  }
+
+10. Can we declare static methods as private?
+Ans10-Yes.
+
+11. What will be the outcome of the below program?
+
+   package pack1;
+ 
+   public class A
+   {
+    private int methodOne(int i)
+    {
+        return ++i;
+    }
+     
+    public int methodTwo(int i)
+    {
+        return methodOne(++i);
+    }
+    }
+ 
+    package pack2;
+ 
+   import pack1.A;
+ 
+   class B extends A
+   {
+    int methodOne(int i)
+    {
+        return methodTwo(++i);
+    }
+     }
+ 
+   public class MainClass
+   {
+    public static void main(String[] args)
+    {
+        System.out.println(new B().methodOne(101));
+    }
+    }
+Ans11- 104.
+
+12. Can you find out the error in the following code snippet?
+
+   class A
+  {
+    public void methodOfA()
+    {
+        System.out.println("Class A");
+    }
+    }
+ 
+   class B extends A
+   {
+    @Override
+    void methodOfA()
+    {
+        System.out.println("Class B");
+    }
+    }
+Ans12-visibility of methodOfA() has been changed to default which is not feasible.
+
+13. private method can be overridden as public method. True or False?
+Ans13- false, private methods can't be inherited and thus can't be overridden.
+
+14. A method of super class with default access modifier can be overridden as protected or public but not as private. True or false?
+Ans14- true.
+
